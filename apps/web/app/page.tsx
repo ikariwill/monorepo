@@ -1,19 +1,18 @@
-import Image from "next/image";
-import { Button } from "@repo/ui/button";
-import styles from "./page.module.css";
+import Image from 'next/image'
+
+import { APP_NAME } from '@repo/shared/config'
+import { ListUserService } from '@repo/shared/services/ListUserService'
+import { Button } from '@repo/ui/button'
+
+import styles from './page.module.css'
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
+        <h1>{APP_NAME}</h1>
+        <h3>{ListUserService.execute()}</h3>
+
         <ol>
           <li>
             Get started by editing <code>app/page.tsx</code>
